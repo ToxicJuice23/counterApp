@@ -8,7 +8,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-public class guiPractice extends JPanel implements ActionListener {
+public class counter extends JPanel implements ActionListener {
   // number of clicks
   static public int clicks = 0;
   static private JLabel label;
@@ -18,7 +18,7 @@ public class guiPractice extends JPanel implements ActionListener {
   static private JButton decrement;
   static private BufferedImage myPicture;
   Object firstButton = null;
-  public guiPractice() {
+  public counter() {
     label = new JLabel("Number of clicks: 0");
     button = new JButton("Increment");
     decrement = new JButton("Decrement");    
@@ -28,7 +28,7 @@ public class guiPractice extends JPanel implements ActionListener {
     button.addActionListener(this);
     decrement.addActionListener(this);
     // make it so you can specify size and location of objects
-    //panel.setLayout(null);
+    panel.setLayout(null);
     // add button to screen
     panel.add( button );
     button.setLocation(200, 160);
@@ -79,7 +79,7 @@ public class guiPractice extends JPanel implements ActionListener {
 
   public static void main(String[] args) {
     // call constructor
-    new guiPractice();
+    new counter();
     getFrameSize();  
     // move items to center of window and resize them
     while (true) {
@@ -102,11 +102,5 @@ public class guiPractice extends JPanel implements ActionListener {
 		clicks--;
 	}
     label.setText("Number of clicks: " + clicks);
-  }
-  
-  @Override
-  protected void paintComponent(Graphics g) {
-	  super.paintComponent(g);
-	  g.drawImage(myPicture, 0, 0, this);
   }
 }
